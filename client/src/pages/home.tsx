@@ -120,11 +120,11 @@ export default function Home() {
             <button 
               onClick={() => {
                 playSound('click');
-                setShowTermsModal(true);
+                window.open('https://wa.me/918302718516', '_blank');
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
-              Terms
+              Contact Us
             </button>
           </div>
           
@@ -164,7 +164,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-8xl terminal-font font-bold mb-6 stagger-animation">
                 <span className="text-primary neon-glow animate-bounce inline-block">&gt;</span>
                 <span className="text-foreground glitch-text inline-block">HACK</span>
-                <span className="text-primary pulse-text inline-block">_THE_</span>
+                <span className="text-primary pulse-text inline-block"> THE </span>
                 <span className="text-cyan-500 rainbow-text inline-block">WORLD</span>
                 <span className="animate-pulse text-primary text-6xl md:text-8xl inline-block">|</span>
               </h1>
