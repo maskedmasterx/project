@@ -139,17 +139,7 @@ export default function Home() {
             </button>
           </div>
           
-          <Button
-            onClick={() => {
-              playSound('click');
-              setShowAdminPanel(true);
-            }}
-            variant="outline"
-            className="border-cyan-500 text-cyan-500 hover:bg-cyan-500/10"
-          >
-            <Terminal className="w-4 h-4 mr-2" />
-            Admin
-          </Button>
+          
         </div>
       </nav>
 
