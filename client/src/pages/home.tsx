@@ -100,13 +100,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="hidden md:flex space-x-8">
+          <div className="flex md:space-x-8 space-x-4 flex-wrap justify-center md:justify-end">
             <button 
               onClick={() => {
                 playSound('click');
                 window.location.href = '/';
               }}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               Home
             </button>
@@ -115,7 +115,7 @@ export default function Home() {
                 playSound('click');
                 scrollToCourses();
               }}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               Courses
             </button>
@@ -124,7 +124,7 @@ export default function Home() {
                 playSound('click');
                 window.location.href = '/about';
               }}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               About
             </button>
@@ -133,9 +133,9 @@ export default function Home() {
                 playSound('click');
                 window.location.href = '/contact';
               }}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
-              Contact Us
+              Contact
             </button>
           </div>
           
@@ -161,22 +161,22 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center z-10 relative">
           <div className="max-w-5xl mx-auto">
             {/* Enhanced Title with Stagger Animation */}
-            <div className="mb-8">
-              <h1 className="text-5xl md:text-8xl terminal-font font-bold mb-6 stagger-animation">
+            <div className="mb-6 md:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl terminal-font font-bold mb-4 md:mb-6 stagger-animation leading-tight">
                 <span className="text-primary neon-glow animate-bounce inline-block">&gt;</span>
                 <span className="text-foreground glitch-text inline-block">HACK</span>
                 <span className="text-primary pulse-text inline-block"> THE </span>
                 <span className="text-cyan-500 rainbow-text inline-block">WORLD</span>
-                <span className="animate-pulse text-primary text-6xl md:text-8xl inline-block">|</span>
+                <span className="animate-pulse text-primary text-4xl sm:text-5xl md:text-6xl lg:text-8xl inline-block">|</span>
               </h1>
             </div>
             
             {/* Enhanced Subtitle */}
-            <div className="relative mb-12">
-              <div className="text-xl md:text-3xl text-muted-foreground terminal-font typing-effect-enhanced gradient-text">
+            <div className="relative mb-8 md:mb-12">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground terminal-font gradient-text px-4 md:px-0">
                 Master Elite Cybersecurity Skills • Affordable Premium Courses
               </div>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
             </div>
             
             {/* Stats Cards */}
