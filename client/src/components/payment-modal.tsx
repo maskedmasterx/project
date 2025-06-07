@@ -183,16 +183,31 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
                 </div>
                 
                 {/* Terms and Conditions */}
-                <div className="flex items-start space-x-3 pt-4 border-t border-cyber-border">
-                  <Checkbox
-                    id="terms"
-                    checked={formData.termsAccepted}
-                    onCheckedChange={(checked) => handleInputChange("termsAccepted", checked === true)}
-                    className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
-                  />
-                  <Label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
-                    I accept the Terms and Conditions including the no-refund policy. I understand this is a reselling service offering premium courses at discounted rates to make education accessible.
-                  </Label>
+                <div className="pt-4 border-t border-cyber-border space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="terms"
+                      checked={formData.termsAccepted}
+                      onCheckedChange={(checked) => handleInputChange("termsAccepted", checked === true)}
+                      className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                    />
+                    <Label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
+                      I accept the Terms and Conditions including the no-refund policy. I understand this is a reselling service offering premium courses at discounted rates to make education accessible.
+                    </Label>
+                  </div>
+                  
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      playSound('click');
+                      window.open('/terms', '_blank');
+                    }}
+                    className="w-full border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300 text-sm"
+                  >
+                    <Shield className="w-4 h-4 mr-2" />
+                    Read Full Terms & Conditions
+                  </Button>
                 </div>
 
                 <Button 
