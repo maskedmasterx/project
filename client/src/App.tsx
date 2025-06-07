@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import About from "@/pages/about";
 import NotFound from "@/pages/not-found";
-import Contact from "@/pages/contact"; // Added import for Contact component
+import Contact from "@/pages/contact";
 
 function Router() {
   return (
