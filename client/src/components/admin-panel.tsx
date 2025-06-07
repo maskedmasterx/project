@@ -153,6 +153,7 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
       duration: course.duration,
       level: course.level,
       features: course.features.join(', '),
+      imageUrl: course.imageUrl || "",
     });
     setShowCourseForm(true);
   };
