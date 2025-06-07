@@ -370,6 +370,36 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
                       />
                     </div>
                     
+                    <div>
+                      <Label>Course Image URL</Label>
+                      <Input
+                        value={courseForm.imageUrl}
+                        onChange={(e) => setCourseForm({...courseForm, imageUrl: e.target.value})}
+                        placeholder="https://example.com/course-image.jpg"
+                        className="bg-cyber-surface border-cyber-border"
+                      />
+                      <div className="text-xs text-muted-foreground mt-1">
+                        Optional: Enter a direct URL to an image for the course
+                      </div>
+                      {courseForm.imageUrl && (
+                        <div className="mt-2 p-2 border border-cyber-border rounded">
+                          <div className="text-xs text-muted-foreground mb-2">Preview:</div>
+                          <img 
+                            src={courseForm.imageUrl} 
+                            alt="Course preview" 
+                            className="w-32 h-20 object-cover rounded border"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.nextElementSibling!.style.display = 'block';
+                            }}
+                          />
+                          <div className="text-xs text-red-500 hidden">
+                            Invalid image URL
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
                     <div className="flex gap-4">
                       <Button type="submit" className="bg-primary text-primary-foreground">
                         {editingCourse ? 'Update Course' : 'Create Course'}
