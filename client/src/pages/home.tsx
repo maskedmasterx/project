@@ -131,7 +131,7 @@ export default function Home() {
             <button 
               onClick={() => {
                 playSound('click');
-                window.open('https://wa.me/918302718516', '_blank');
+                window.location.href = '/contact';
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
