@@ -28,6 +28,7 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
     duration: "",
     level: "",
     features: "",
+    imageUrl: "",
   });
 
   const { toast } = useToast();
@@ -114,6 +115,7 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
       duration: "",
       level: "",
       features: "",
+      imageUrl: "",
     });
     setEditingCourse(null);
     setShowCourseForm(false);
@@ -130,6 +132,7 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
       duration: courseForm.duration,
       level: courseForm.level,
       features: courseForm.features.split(',').map(f => f.trim()),
+      imageUrl: courseForm.imageUrl || null,
       isActive: true,
     };
 

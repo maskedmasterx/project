@@ -78,11 +78,29 @@ export default function Home() {
             <button 
               onClick={() => {
                 playSound('click');
+                window.location.href = '/';
+              }}
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => {
+                playSound('click');
                 scrollToCourses();
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Courses
+            </button>
+            <button 
+              onClick={() => {
+                playSound('click');
+                window.location.href = '/about';
+              }}
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              About
             </button>
             <button 
               onClick={() => {
