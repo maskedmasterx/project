@@ -45,6 +45,7 @@ export class MemStorage implements IStorage {
         duration: "40+ Hours",
         level: "Beginner",
         features: ["Network Security", "Web App Testing", "Linux Basics", "Tool Mastery", "OWASP Top 10", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=250&fit=crop",
         isActive: true,
       },
       {
@@ -55,6 +56,7 @@ export class MemStorage implements IStorage {
         duration: "60+ Hours",
         level: "Advanced",
         features: ["Advanced Exploits", "Buffer Overflows", "Privilege Escalation", "Report Writing", "Enterprise Testing", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop",
         isActive: true,
       },
       {
@@ -65,6 +67,7 @@ export class MemStorage implements IStorage {
         duration: "35+ Hours",
         level: "Intermediate",
         features: ["SQL Injection", "XSS Attacks", "Authentication Bypass", "API Security", "Secure Coding", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop",
         isActive: true,
       },
       {
@@ -75,6 +78,7 @@ export class MemStorage implements IStorage {
         duration: "45+ Hours",
         level: "Intermediate",
         features: ["Firewall Configuration", "IDS/IPS Setup", "VPN Security", "Network Forensics", "Wireshark Analysis", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=250&fit=crop",
         isActive: true,
       },
       {
@@ -85,6 +89,7 @@ export class MemStorage implements IStorage {
         duration: "50+ Hours",
         level: "Advanced",
         features: ["Evidence Acquisition", "File System Analysis", "Memory Forensics", "Mobile Forensics", "Report Writing", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=400&h=250&fit=crop",
         isActive: true,
       },
       {
@@ -95,6 +100,7 @@ export class MemStorage implements IStorage {
         duration: "55+ Hours",
         level: "Expert",
         features: ["Multi-Cloud Security", "Compliance", "DevSecOps", "Container Security", "Serverless Security", "Certificate"],
+        imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop",
         isActive: true,
       },
     ];
@@ -119,6 +125,7 @@ export class MemStorage implements IStorage {
       ...insertCourse,
       id,
       isActive: insertCourse.isActive ?? true,
+      imageUrl: insertCourse.imageUrl ?? null,
       createdAt: new Date(),
     };
     this.courses.set(id, course);

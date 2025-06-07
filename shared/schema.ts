@@ -11,6 +11,7 @@ export const courses = pgTable("courses", {
   duration: text("duration").notNull(),
   level: text("level").notNull(),
   features: text("features").array().notNull(),
+  imageUrl: text("image_url"),
   isActive: boolean("is_active").notNull().default(true),
   createdAt: timestamp("created_at").defaultNow(),
 });
