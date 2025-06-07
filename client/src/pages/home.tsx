@@ -32,6 +32,17 @@ export default function Home() {
       delay: Math.random() * 20,
     }));
     setMatrixChars(newMatrixChars);
+
+    // Listen for terms modal open event from payment modal
+    const handleOpenTermsModal = () => {
+      setShowTermsModal(true);
+    };
+
+    window.addEventListener('openTermsModal', handleOpenTermsModal);
+
+    return () => {
+      window.removeEventListener('openTermsModal', handleOpenTermsModal);
+    };
   }, []);
 
   const handleCourseSelect = (course: Course) => {

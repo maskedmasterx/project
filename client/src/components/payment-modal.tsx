@@ -201,41 +201,10 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
                     variant="outline"
                     onClick={() => {
                       playSound('click');
-                      // Open terms modal instead of navigating to a page
-                      const termsModal = document.createElement('div');
-                      termsModal.innerHTML = `
-                        <div class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                          <div class="cyber-border bg-cyber-surface rounded-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto">
-                            <div class="flex justify-between items-center p-6 border-b border-cyber-border">
-                              <h2 class="text-2xl terminal-font font-bold text-primary">Terms and Conditions</h2>
-                              <button onclick="this.closest('.fixed').remove()" class="text-muted-foreground hover:text-primary">✕</button>
-                            </div>
-                            <div class="p-6 space-y-6 text-muted-foreground">
-                              <div>
-                                <h3 class="text-lg font-bold text-primary mb-3">1. No Refund Policy</h3>
-                                <p class="leading-relaxed">
-                                  <strong class="text-red-500">IMPORTANT:</strong> All course purchases are final and non-refundable. 
-                                  Once payment is processed and course access is granted, no refunds will be provided under any circumstances.
-                                </p>
-                              </div>
-                              <div>
-                                <h3 class="text-lg font-bold text-primary mb-3">2. Contact Information</h3>
-                                <p class="text-sm">
-                                  <strong>Email:</strong> hacker340652@gmail.com<br />
-                                  <strong>WhatsApp:</strong> +91 8302718516<br />
-                                  <strong>Business Hours:</strong> 9:00 AM - 9:00 PM IST
-                                </p>
-                              </div>
-                            </div>
-                            <div class="p-6 border-t border-cyber-border text-center">
-                              <button onclick="this.closest('.fixed').remove()" class="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-bold">
-                                I Understand & Accept
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      `;
-                      document.body.appendChild(termsModal);
+                      // Close payment modal and open full terms modal
+                      onClose();
+                      // Trigger opening of terms modal from parent component
+                      window.dispatchEvent(new CustomEvent('openTermsModal'));
                     }}
                     className="w-full border-cyan-500/30 text-cyan-500 hover:bg-cyan-500/10 hover:border-cyan-500 transition-all duration-300 text-sm"
                   >
