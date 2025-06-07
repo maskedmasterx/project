@@ -6,6 +6,7 @@ import AdminPanel from "@/components/admin-panel";
 import TermsModal from "@/components/terms-modal";
 import { Button } from "@/components/ui/button";
 import { Shield, Terminal, Code, Bug, Cpu, Database } from "lucide-react";
+import { useSoundEffects } from "@/hooks/use-sound-effects";
 import type { Course } from "@shared/schema";
 import qrCodeImage from "@assets/govind_1749263559605.jpg";
 
@@ -16,6 +17,7 @@ export default function Home() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [matrixChars, setMatrixChars] = useState<Array<{ id: number; char: string; left: number; delay: number }>>([]);
 
+  const { playSound } = useSoundEffects();
   const { data: courses = [], isLoading } = useQuery<Course[]>({
     queryKey: ["/api/courses"],
   });
@@ -74,13 +76,19 @@ export default function Home() {
           
           <div className="hidden md:flex space-x-8">
             <button 
-              onClick={scrollToCourses}
+              onClick={() => {
+                playSound('click');
+                scrollToCourses();
+              }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Courses
             </button>
             <button 
-              onClick={() => setShowTermsModal(true)}
+              onClick={() => {
+                playSound('click');
+                setShowTermsModal(true);
+              }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               Terms
@@ -88,7 +96,10 @@ export default function Home() {
           </div>
           
           <Button
-            onClick={() => setShowAdminPanel(true)}
+            onClick={() => {
+              playSound('click');
+              setShowAdminPanel(true);
+            }}
             variant="outline"
             className="border-cyan-500 text-cyan-500 hover:bg-cyan-500/10"
           >

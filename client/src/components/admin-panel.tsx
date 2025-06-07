@@ -31,6 +31,7 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
   });
 
   const { toast } = useToast();
+  const { playSound } = useSoundEffects();
   const queryClient = useQueryClient();
 
   const { data: courses = [] } = useQuery<Course[]>({
@@ -96,8 +97,10 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
     // Simple demo authentication
     if (password === "admin123") {
       setIsAuthenticated(true);
+      playSound('success');
       toast({ title: "Admin access granted!" });
     } else {
+      playSound('error');
       toast({ title: "Invalid password", variant: "destructive" });
     }
   };
@@ -195,9 +198,10 @@ export default function AdminPanel({ onClose }: AdminPanelProps) {
             >
               ACCESS GRANTED
             </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Demo password: admin123
-            </p>
+            <div className="text-xs text-muted-foreground text-center space-y-1">
+              <p>Demo password: <span className="text-primary terminal-font">admin123</span></p>
+              <p className="text-red-500">⚠️ Production systems require secure authentication</p>
+            </div>
           </div>
         </div>
       </div>

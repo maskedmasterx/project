@@ -118,6 +118,7 @@ export class MemStorage implements IStorage {
     const course: Course = {
       ...insertCourse,
       id,
+      isActive: insertCourse.isActive ?? true,
       createdAt: new Date(),
     };
     this.courses.set(id, course);
@@ -180,6 +181,7 @@ export class MemStorage implements IStorage {
     const order: Order = {
       ...insertOrder,
       id,
+      status: insertOrder.status ?? "pending",
       createdAt: new Date(),
     };
     this.orders.set(id, order);
