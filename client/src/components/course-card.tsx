@@ -33,7 +33,7 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
 
   return (
     <div 
-      className="cyber-border bg-cyber-surface/50 rounded-xl overflow-hidden hover:cyber-glow transition-all duration-300 transform hover:scale-105 group"
+      className="cyber-border bg-cyber-surface/50 rounded-xl overflow-hidden hover:cyber-glow transition-all duration-500 transform hover:scale-105 hover:rotate-1 group relative course-card-glow"
       onMouseEnter={() => playSound('hover')}
     >
       {/* Course Image */}
