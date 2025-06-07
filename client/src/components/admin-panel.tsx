@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { X, Plus, Edit, Trash2, Users, BookOpen, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useSoundEffects } from "@/hooks/use-sound-effects";
 import { apiRequest } from "@/lib/queryClient";
 import type { Course, Order, Student } from "@shared/schema";
 

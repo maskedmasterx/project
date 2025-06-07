@@ -1,5 +1,6 @@
 import { Shield, Clock, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useSoundEffects } from "@/hooks/use-sound-effects";
 import type { Course } from "@shared/schema";
 
 interface CourseCardProps {
@@ -8,6 +9,8 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({ course, onSelect }: CourseCardProps) {
+  const { playSound } = useSoundEffects();
+  
   const getDifficultyColor = (level: string) => {
     switch (level.toLowerCase()) {
       case 'beginner': return 'text-green-500';
@@ -29,7 +32,10 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
   };
 
   return (
-    <div className="cyber-border bg-cyber-surface/50 rounded-xl p-6 hover:cyber-glow transition-all duration-300 transform hover:scale-105 group">
+    <div 
+      className="cyber-border bg-cyber-surface/50 rounded-xl p-6 hover:cyber-glow transition-all duration-300 transform hover:scale-105 group"
+      onMouseEnter={() => playSound('hover')}
+    >
       <div className="flex justify-between items-start mb-4">
         <span className={`bg-cyber-dark px-3 py-1 rounded-full text-sm terminal-font font-bold ${getDifficultyColor(course.level)}`}>
           {getDifficultyIcon(course.level)} {course.level}
@@ -63,7 +69,10 @@ export default function CourseCard({ course, onSelect }: CourseCardProps) {
       </div>
       
       <Button 
-        onClick={() => onSelect(course)}
+        onClick={() => {
+          playSound('click');
+          onSelect(course);
+        }}
         className="w-full bg-gradient-to-r from-primary to-cyan-500 text-primary-foreground py-3 rounded-lg font-semibold hover:from-cyan-500 hover:to-primary transition-all duration-300 transform hover:scale-105"
       >
         <Shield className="w-4 h-4 mr-2" />

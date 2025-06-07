@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { X, Shield, CreditCard } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useSoundEffects } from "@/hooks/use-sound-effects";
 import { apiRequest } from "@/lib/queryClient";
 import type { Course } from "@shared/schema";
 import qrCodeImage from "@assets/govind_1749263559605.jpg";
@@ -24,6 +25,7 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
     termsAccepted: false,
   });
   const { toast } = useToast();
+  const { playSound } = useSoundEffects();
   const queryClient = useQueryClient();
 
   const purchaseMutation = useMutation({
@@ -40,6 +42,7 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
       return response.json();
     },
     onSuccess: (data) => {
+      playSound('success');
       toast({
         title: "Payment Submitted Successfully!",
         description: "You will receive course access within 24 hours. Check your WhatsApp for confirmation.",
@@ -54,6 +57,7 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
       onClose();
     },
     onError: () => {
+      playSound('error');
       toast({
         title: "Payment Submission Failed",
         description: "Please check your details and try again.",
@@ -65,6 +69,7 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.termsAccepted) {
+      playSound('error');
       toast({
         title: "Terms Required",
         description: "Please accept the terms and conditions.",
@@ -72,6 +77,7 @@ export default function PaymentModal({ course, onClose }: PaymentModalProps) {
       });
       return;
     }
+    playSound('click');
     purchaseMutation.mutate(formData);
   };
 
