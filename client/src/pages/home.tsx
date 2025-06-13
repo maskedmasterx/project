@@ -15,7 +15,9 @@ export default function Home() {
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
-  const [matrixChars, setMatrixChars] = useState<Array<{ id: number; char: string; left: number; delay: number }>>([]);
+  const [matrixChars, setMatrixChars] = useState<
+    Array<{ id: number; char: string; left: number; delay: number }>
+  >([]);
 
   const { playSound } = useSoundEffects();
   const { data: courses = [], isLoading } = useQuery<Course[]>({
@@ -24,7 +26,7 @@ export default function Home() {
 
   // Matrix rain effect
   useEffect(() => {
-    const chars = '01';
+    const chars = "01";
     const newMatrixChars = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       char: chars[Math.floor(Math.random() * chars.length)],
@@ -38,10 +40,10 @@ export default function Home() {
       setShowTermsModal(true);
     };
 
-    window.addEventListener('openTermsModal', handleOpenTermsModal);
+    window.addEventListener("openTermsModal", handleOpenTermsModal);
 
     return () => {
-      window.removeEventListener('openTermsModal', handleOpenTermsModal);
+      window.removeEventListener("openTermsModal", handleOpenTermsModal);
     };
   }, []);
 
@@ -51,7 +53,7 @@ export default function Home() {
   };
 
   const scrollToCourses = () => {
-    document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("courses")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -95,51 +97,53 @@ export default function Home() {
               <Shield className="text-primary text-xl" />
             </div>
             <div>
-              <h1 className="text-xl terminal-font font-bold text-primary glitch-text">CyberSec Academy</h1>
-              <p className="text-xs text-muted-foreground">Elite Hacking Education</p>
+              <h1 className="text-xl terminal-font font-bold text-primary glitch-text">
+                CyberSec Academy
+              </h1>
+              <p className="text-xs text-muted-foreground">
+                Elite Hacking Education
+              </p>
             </div>
           </div>
-          
+
           <div className="flex md:space-x-8 space-x-4 flex-wrap justify-center md:justify-end">
-            <button 
+            <button
               onClick={() => {
-                playSound('click');
-                window.location.href = '/';
+                playSound("click");
+                window.location.href = "/";
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               Home
             </button>
-            <button 
+            <button
               onClick={() => {
-                playSound('click');
+                playSound("click");
                 scrollToCourses();
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               Courses
             </button>
-            <button 
+            <button
               onClick={() => {
-                playSound('click');
-                window.location.href = '/about';
+                playSound("click");
+                window.location.href = "/about";
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               About
             </button>
-            <button 
+            <button
               onClick={() => {
-                playSound('click');
-                window.location.href = '/contact';
+                playSound("click");
+                window.location.href = "/contact";
               }}
               className="text-muted-foreground hover:text-primary transition-colors duration-300 px-2 py-1 text-sm md:text-base"
             >
               Contact
             </button>
           </div>
-          
-          
         </div>
       </nav>
 
@@ -157,20 +161,31 @@ export default function Home() {
 
         {/* Animated Grid Background */}
         <div className="absolute inset-0 animated-grid opacity-10"></div>
-        
+
         <div className="container mx-auto px-4 text-center z-10 relative">
           <div className="max-w-5xl mx-auto">
             {/* Enhanced Title with Stagger Animation */}
             <div className="mb-6 md:mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl terminal-font font-bold mb-4 md:mb-6 stagger-animation leading-tight">
-                <span className="text-primary neon-glow animate-bounce inline-block">&gt;</span>
-                <span className="text-foreground glitch-text inline-block">HACK</span>
-                <span className="text-primary pulse-text inline-block"> THE </span>
-                <span className="text-cyan-500 rainbow-text inline-block">WORLD</span>
-                <span className="animate-pulse text-primary text-4xl sm:text-5xl md:text-6xl lg:text-8xl inline-block">|</span>
+                <span className="text-primary neon-glow animate-bounce inline-block">
+                  &gt;
+                </span>
+                <span className="text-foreground glitch-text inline-block">
+                  HACK THE WORLD{" "}
+                </span>
+                <span className="text-primary pulse-text inline-block">
+                  {" "}
+                  THE{" "}
+                </span>
+                <span className="text-cyan-500 rainbow-text inline-block">
+                  WORLD
+                </span>
+                <span className="animate-pulse text-primary text-4xl sm:text-5xl md:text-6xl lg:text-8xl inline-block">
+                  |
+                </span>
               </h1>
             </div>
-            
+
             {/* Enhanced Subtitle */}
             <div className="relative mb-8 md:mb-12">
               <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground terminal-font gradient-text px-4 md:px-0">
@@ -178,30 +193,38 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
             </div>
-            
+
             {/* Stats Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
               <div className="cyber-border bg-cyber-surface/30 p-4 rounded-lg hover:cyber-glow transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl font-bold text-primary terminal-font">50K+</div>
+                <div className="text-2xl font-bold text-primary terminal-font">
+                  500+
+                </div>
                 <div className="text-sm text-muted-foreground">Students</div>
               </div>
               <div className="cyber-border bg-cyber-surface/30 p-4 rounded-lg hover:cyber-glow transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl font-bold text-cyan-500 terminal-font">100+</div>
+                <div className="text-2xl font-bold text-cyan-500 terminal-font">
+                  6+
+                </div>
                 <div className="text-sm text-muted-foreground">Courses</div>
               </div>
               <div className="cyber-border bg-cyber-surface/30 p-4 rounded-lg hover:cyber-glow transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl font-bold text-pink-500 terminal-font">24/7</div>
+                <div className="text-2xl font-bold text-pink-500 terminal-font">
+                  24/7
+                </div>
                 <div className="text-sm text-muted-foreground">Support</div>
               </div>
               <div className="cyber-border bg-cyber-surface/30 p-4 rounded-lg hover:cyber-glow transition-all duration-300 transform hover:scale-105">
-                <div className="text-2xl font-bold text-yellow-500 terminal-font">90%</div>
+                <div className="text-2xl font-bold text-yellow-500 terminal-font">
+                  90%
+                </div>
                 <div className="text-sm text-muted-foreground">Discount</div>
               </div>
             </div>
-            
+
             {/* Enhanced Buttons */}
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-              <Button 
+              <Button
                 onClick={scrollToCourses}
                 className="bg-gradient-to-r from-primary via-cyan-500 to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-primary-foreground px-10 py-5 rounded-xl font-bold transition-all duration-500 transform hover:scale-110 neon-glow-intense shadow-2xl relative overflow-hidden group"
               >
@@ -209,14 +232,14 @@ export default function Home() {
                 <Code className="w-6 h-6 mr-3" />
                 START LEARNING NOW
               </Button>
-              <Button 
+              <Button
                 variant="outline"
                 onClick={() => setShowPaymentModal(true)}
                 className="border-2 border-cyan-500 text-cyan-500 px-10 py-5 rounded-xl font-bold hover:bg-cyan-500/20 transition-all duration-300 transform hover:scale-105 hover:shadow-cyan-500/50 hover:shadow-2xl relative overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/20 to-cyan-500/0 translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                 <Terminal className="w-6 h-6 mr-3" />
-                QUICK PAYMENT
+                Easy Process
               </Button>
             </div>
           </div>
@@ -245,10 +268,12 @@ export default function Home() {
             <span className="text-foreground">PREMIUM_COURSES</span>
             <span className="text-primary">]</span>
           </h2>
-          
+
           {isLoading ? (
             <div className="text-center">
-              <div className="terminal-font text-primary">Loading courses...</div>
+              <div className="terminal-font text-primary">
+                Loading courses...
+              </div>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -272,22 +297,28 @@ export default function Home() {
             <span className="text-foreground">SECURE_PAYMENT</span>
             <span className="text-cyan-500">/&gt;</span>
           </h2>
-          
+
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center">
               <div className="bg-white p-6 rounded-2xl inline-block shadow-2xl border-4 border-primary/50 neon-glow">
-                <img 
-                  src={qrCodeImage} 
-                  alt="Payment QR Code" 
+                <img
+                  src={qrCodeImage}
+                  alt="Payment QR Code"
                   className="w-64 h-64 mx-auto"
                 />
               </div>
-              <p className="text-primary terminal-font mt-4 text-lg">Scan to Pay with UPI</p>
-              <p className="text-muted-foreground text-sm mt-2">All major UPI apps supported</p>
+              <p className="text-primary terminal-font mt-4 text-lg">
+                Scan to Pay with UPI
+              </p>
+              <p className="text-muted-foreground text-sm mt-2">
+                All major UPI apps supported
+              </p>
             </div>
-            
+
             <div className="cyber-border bg-cyber-surface/50 p-8 rounded-xl">
-              <h3 className="text-2xl terminal-font font-bold text-primary mb-6">Quick Start</h3>
+              <h3 className="text-2xl terminal-font font-bold text-primary mb-6">
+                Quick Start
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center text-sm text-muted-foreground">
                   <Shield className="w-4 h-4 mr-2 text-primary" />
@@ -306,7 +337,7 @@ export default function Home() {
                   Get course access in 24hrs
                 </div>
               </div>
-              
+
               <Button
                 onClick={() => setShowPaymentModal(true)}
                 className="w-full mt-6 bg-gradient-to-r from-primary to-cyan-500 text-primary-foreground py-3 rounded-lg font-bold hover:from-cyan-500 hover:to-primary transition-all duration-300"
@@ -338,15 +369,20 @@ export default function Home() {
                   <Shield className="text-primary text-2xl" />
                 </div>
                 <div>
-                  <h3 className="text-2xl terminal-font font-bold text-primary">CyberSec Academy</h3>
-                  <p className="text-sm text-muted-foreground">Elite Hacking Education</p>
+                  <h3 className="text-2xl terminal-font font-bold text-primary">
+                    CyberSec Academy
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Elite Hacking Education
+                  </p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6 max-w-md">
-                Democratizing elite cybersecurity education through affordable premium courses. 
-                Making world-class hacking skills accessible to everyone.
+                Democratizing elite cybersecurity education through affordable
+                premium courses. Making world-class hacking skills accessible to
+                everyone.
               </p>
-              
+
               {/* Social Icons */}
               <div className="flex space-x-4">
                 <button className="w-10 h-10 cyber-border bg-cyber-surface/30 rounded-lg flex items-center justify-center text-cyan-500 hover:text-primary hover:cyber-glow transition-all duration-300">
@@ -363,29 +399,31 @@ export default function Home() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg terminal-font font-bold text-primary mb-4">Quick Links</h4>
+              <h4 className="text-lg terminal-font font-bold text-primary mb-4">
+                Quick Links
+              </h4>
               <div className="space-y-3">
-                <button 
-                  onClick={() => window.location.href = '/'}
+                <button
+                  onClick={() => (window.location.href = "/")}
                   className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
                 >
                   Home
                 </button>
-                <button 
+                <button
                   onClick={scrollToCourses}
                   className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
                 >
                   Courses
                 </button>
-                <button 
-                  onClick={() => window.location.href = '/about'}
+                <button
+                  onClick={() => (window.location.href = "/about")}
                   className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
                 >
                   About Us
                 </button>
-                <button 
+                <button
                   onClick={() => {
-                    playSound('click');
+                    playSound("click");
                     setShowTermsModal(true);
                   }}
                   className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
@@ -397,7 +435,9 @@ export default function Home() {
 
             {/* Contact Info */}
             <div>
-              <h4 className="text-lg terminal-font font-bold text-primary mb-4">Contact</h4>
+              <h4 className="text-lg terminal-font font-bold text-primary mb-4">
+                Contact
+              </h4>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center">
                   <span className="text-primary mr-2">@</span>
@@ -412,7 +452,7 @@ export default function Home() {
                   <span>9:00 AM - 9:00 PM IST</span>
                 </div>
               </div>
-              
+
               {/* Quick Payment Button */}
               <Button
                 onClick={() => setShowPaymentModal(true)}
@@ -426,30 +466,43 @@ export default function Home() {
           {/* Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-8 border-t border-b border-cyber-border/50">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary terminal-font">50K+</div>
-              <div className="text-xs text-muted-foreground">Students Trained</div>
+              <div className="text-2xl font-bold text-primary terminal-font">
+                500+
+              </div>
+              <div className="text-xs text-muted-foreground">
+                Students Trained
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-cyan-500 terminal-font">100+</div>
-              <div className="text-xs text-muted-foreground">Premium Courses</div>
+              <div className="text-2xl font-bold text-cyan-500 terminal-font">
+                6+
+              </div>
+              <div className="text-xs text-muted-foreground">
+                Premium Courses
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-pink-500 terminal-font">24/7</div>
+              <div className="text-2xl font-bold text-pink-500 terminal-font">
+                24/7
+              </div>
               <div className="text-xs text-muted-foreground">Support</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-yellow-500 terminal-font">90%</div>
+              <div className="text-2xl font-bold text-yellow-500 terminal-font">
+                90%
+              </div>
               <div className="text-xs text-muted-foreground">Savings</div>
             </div>
           </div>
-          
+
           {/* Bottom Section */}
           <div className="pt-8 text-center">
             <p className="text-muted-foreground text-sm mb-2">
               &copy; 2024 CyberSec Academy. All rights reserved.
             </p>
             <p className="text-muted-foreground text-xs">
-              Ethical hacking education for cybersecurity professionals • No Refund Policy Applies
+              Ethical hacking education for cybersecurity professionals • No
+              Refund Policy Applies
             </p>
             <div className="mt-4 flex justify-center items-center space-x-4 text-xs text-muted-foreground">
               <span>Made with</span>
